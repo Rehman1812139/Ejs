@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <% include partials/head %> 
+</head>
+<body>
+<% include partials/menu %>
+<div class="container-fluid bg-3 text-center">    
+  <h3><%= page %></h3><br>
+  <div class="row">
+    <div class="col-sm-4">
+     <% if(students.length>0){ %> 
+        <table>
+            <thread>
+                <tr>
+                    <th>Name</th>
+                    <th>Gender</th>
+                    <th>City</th>
+                </tr>
+                </thread>
+                <tbody>
+                    <% for(var i=0; i<students.length;i++){ %>
+                        <tr>
+                            <td><a href="/students/show/<%= students[i]._id%>"><%= students[i].Name%></a></td>
+                            <td><%= students[i].Gender%></td>
+                            <td><%= students[i].City%></td>
+                            
+                        </tr>
+                    <%} %>
+
+                </tbody>
+        </table>
+    <%    }else{ %> 
+          <div>No Data found</div>
+        <%}%> 
+  
+    </div>
+  </div>
+</div>
+</body>
+<% include partials/script %>
+</html>
